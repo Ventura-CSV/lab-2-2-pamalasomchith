@@ -4,10 +4,10 @@ import sys
 import re
 
 
-def test_main_100_20():
+def test_main_50():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '100 \n 20'
+    datastr = '50'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -15,29 +15,27 @@ def test_main_100_20():
     print('Captured ', captureOut.getvalue())
     lines = captureOut.getvalue().split('\n')
     print(lines)
-    # p = re.compile('[\w,\W]*100[\w,\W]*')
-    # res = p.match(lines[0])
-    # print(res.group())
-    res = re.search('100', lines[0])
+
+    res = re.search('730', lines[0])
     assert res != None
     print(res.group())
-    assert res.group() == '100', 'Expected 100'
+    assert res.group() == '730', 'Expected 730'
 
-    res = re.search('20', lines[1])
+    res = re.search('277.8', lines[1])
     assert res != None
     print(res.group())
-    assert res.group() == '20', 'Expected 20'
+    assert res.group() == '277.8', 'Expected 277.8'
 
-    res = re.search('80', lines[2])
+    res = re.search('1007.8', lines[2])
     assert res != None, 'The final price error'
     print(res.group())
-    assert res.group() == '80', 'Expected 80'
+    assert res.group() == '1007.8', 'Expected 1007.8'
 
 
-def test_main_200_40():
+def test_main_70():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '200 \n 20'
+    datastr = '70'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -45,20 +43,18 @@ def test_main_200_40():
     print('Captured ', captureOut.getvalue())
     lines = captureOut.getvalue().split('\n')
     print(lines)
-    # p = re.compile('[\w,\W]*100[\w,\W]*')
-    # res = p.match(lines[0])
-    # print(res.group())
-    res = re.search('200', lines[0])
+
+    res = re.search('730', lines[0])
     assert res != None
     print(res.group())
-    assert res.group() == '200', 'Expected 200'
+    assert res.group() == '730', 'Expected 730'
 
-    res = re.search('40', lines[1])
+    res = re.search('833.4', lines[1])
     assert res != None
     print(res.group())
-    assert res.group() == '40', 'Expected 40'
+    assert res.group() == '833.4', 'Expected 833.4'
 
-    res = re.search('160', lines[2])
+    res = re.search('1563.4', lines[2])
     assert res != None, 'The final price error'
     print(res.group())
-    assert res.group() == '160', 'Expected 160'
+    assert res.group() == '1563.4', 'Expected 1563.4'
